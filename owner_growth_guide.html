@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard | Mhaske Saraf Digital Growth Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --color-bg: #0c0c0e;
+            --color-card: #151518;
+            --color-gold: #d4af37;
+            --color-gold-light: #f5dfa3;
+            --gold-gradient: linear-gradient(135deg, #f5dfa3, #d4af37, #aa7c11);
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --border-gold: rgba(212, 175, 55, 0.2);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--color-bg);
+            color: #ffffff;
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 3rem 1.5rem;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border-gold);
+            padding-bottom: 2rem;
+        }
+        header h1 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, #f5dfa3, #ffd700, #c5a059);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        header p { color: #a6a6b8; font-size: 0.95rem; }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-gold-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: #ffffff; transform: translateX(-5px); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+        .card {
+            background-color: var(--color-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .icon {
+            font-size: 2.2rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        p { color: #a6a6b8; font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .stat {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            background: rgba(212, 175, 55, 0.05);
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tips-box {
+            background-color: var(--color-card);
+            border: 1px dashed var(--color-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        .tips-box h3 {
+            font-family: var(--font-heading);
+            color: var(--color-gold-light);
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+        }
+        .tips-box ul { list-style-type: none; }
+        .tips-box li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #a6a6b8;
+        }
+        .tips-box li::before {
+            content: "⚜";
+            position: absolute;
+            left: 0;
+            color: var(--color-gold);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Live Showroom</a>
+        
+        <header>
+            <h1>MHASKE SARAF</h1>
+            <p>Proprietor: <strong>Hritik Mhaske</strong> | Tisgaon, Maharashtra</p>
+            <p style="margin-top: 5px; font-size: 0.8rem; color: var(--color-gold);">Store Digital Business Expansion Strategy Dashboard (Private Guide)</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <div class="icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <h2>1. Highway Google SEO</h2>
+                <p>Tisgaon is located on the busy Ahmednagar-Pathardi Road. By optimizing keywords like "Best Gold Shop on Ahmednagar-Pathardi Rd" or "BIS Hallmarked Jewelry Tisgaon", travelers on the highway searching on Google Maps will see Mhaske Saraf instantly and pull over to buy!</p>
+                <div class="stat"><i class="fa-solid fa-arrow-trend-up"></i> Expect: +150% physical footfall</div>
+            </div>
+
+            <div class="card">
+                <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <h2>2. Daily Gold Rate Broadcasts</h2>
+                <p>Have visitors click a quick button on the site to join "Mhaske Saraf Daily Rate Alert Group". Every morning, Hritik can copy today's gold rate and broadcast a beautiful flyer to 1000+ local families. Keeps your brand in their minds daily!</p>
+                <div class="stat"><i class="fa-solid fa-arrow-trend-up"></i> Expect: 2x Customer Retention</div>
+            </div>
+
+            <div class="card">
+                <div class="icon"><i class="fa-solid fa-qrcode"></i></div>
+                <h2>3. Showroom Tag QR Codes</h2>
+                <p>Print tiny premium gold stickers with QR codes for your physical display trays. If a wedding party is shopping in-store, they can scan the tag to see the detailed gram weights and share the design link instantly with relatives in Pune or Mumbai for opinion!</p>
+                <div class="stat"><i class="fa-solid fa-arrow-trend-up"></i> Builds 100% transparent trust</div>
+            </div>
+
+            <div class="card">
+                <div class="icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <h2>4. Direct WhatsApp Conversions</h2>
+                <p>Since jewelry costs fluctuate daily, the website hides rigid static pricing. Instead, customers click "Get Today's Rate" which opens Hritik's personal WhatsApp with a pre-filled quote request. You get high-intent leads in your pocket instantly!</p>
+                <div class="stat"><i class="fa-solid fa-arrow-trend-up"></i> High Conversion Rate</div>
+            </div>
+        </div>
+
+        <div class="tips-box">
+            <h3>💡 Marketing Checklist for Hritik:</h3>
+            <ul>
+                <li><strong>Printed Bags:</strong> Print the website link `mhaskesaraf.com` clearly on your luxury jewelry carrying boxes and shopping bags.</li>
+                <li><strong>Google Map Reviews:</strong> Encourage every happy family buying gold in Tisgaon to scan your custom QR code and leave a 5-star Google review.</li>
+                <li><strong>Instagram Showrooming:</strong> Link this website in your Instagram bio and post high-definition closeups of new bangles or rings weekly.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
