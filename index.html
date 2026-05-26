@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mhaske Saraf | Premium Gold Showroom Tisgaon</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Discover exquisite gold jewelry at Mhaske Saraf, Tisgaon. View our latest designer bangles, mangalsutras, rings, and necklaces. Calculate live gold rates and book appointments.">
+    <meta name="keywords" content="Mhaske Saraf, Tisgaon, Mhaske Saraf Tisgaon, gold shop Tisgaon, jewelry shop Ahmednagar, gold bangles, mangalsutra designs, gold rings, Hritik Mhaske, gold rate today">
+    <meta name="author" content="Hritik Mhaske">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Live Gold Rate Ticker -->
+    <div class="gold-ticker-wrapper">
+        <div class="gold-ticker">
+            <span class="ticker-item"><i class="fa-solid fa-fire-flame-simple text-gold"></i> Live Gold Rates (Tisgaon Market)</span>
+            <span class="ticker-item">Gold 24K (99.9% Purity): <strong id="ticker-24k">₹72,450</strong> / 10g <i class="fa-solid fa-arrow-trend-up text-green"></i></span>
+            <span class="ticker-item">Gold 22K (91.6% Hallmark): <strong id="ticker-22k">₹66,410</strong> / 10g <i class="fa-solid fa-arrow-trend-up text-green"></i></span>
+            <span class="ticker-item">Silver (99.9% Purity): <strong id="ticker-silver">₹87,500</strong> / 1kg <i class="fa-solid fa-arrow-trend-down text-red"></i></span>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo-area">
+                <span class="logo-symbol">⚜</span>
+                <div class="logo-text">
+                    <h1>MHASKE SARAF</h1>
+                    <span class="logo-subtext">TISGAON • SINCE 1998</span>
+                </div>
+            </a>
+            
+            <nav class="navbar" id="navbar">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#catalog" class="nav-link">Designs</a>
+                <a href="#estimator" class="nav-link">Price Estimator</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn" id="cartToggleBtn" aria-label="View Shopping Selection">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartBadgeCount">0</span>
+                </button>
+                <a href="https://wa.me/919960228653" target="_blank" class="cta-header-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Now
+                </a>
+                <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+        <button class="close-drawer-btn" id="closeDrawerBtn"><i class="fa-solid fa-xmark"></i></button>
+        <div class="drawer-logo">
+            <span class="logo-symbol">⚜</span>
+            <h2>MHASKE SARAF</h2>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#home" class="drawer-link">Home</a>
+            <a href="#catalog" class="drawer-link">Designs</a>
+            <a href="#estimator" class="drawer-link">Price Estimator</a>
+            <a href="#contact" class="drawer-link">Contact</a>
+        </nav>
+        <div class="drawer-footer">
+            <p><i class="fa-solid fa-phone"></i> 9960228653</p>
+            <p><i class="fa-solid fa-location-dot"></i> Tisgaon, Maharashtra</p>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-overlay"></div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-tagline"><i class="fa-solid fa-award"></i> 100% BIS Hallmarked Jewellery</span>
+                    <h2 class="hero-title">Shaping Your Golden Moments With <span class="text-gradient">Pure Luxury</span></h2>
+                    <p class="hero-description">Experience the legacy of trust and stellar craftsmanship at Mhaske Saraf. Discover our curated collections of pure gold rings, bangles, mangalsutras, and custom-made bridal necklaces right here online.</p>
+                    <div class="hero-buttons">
+                        <a href="#catalog" class="btn btn-primary"><i class="fa-solid fa-gem"></i> Explore Catalog</a>
+                        <a href="#estimator" class="btn btn-secondary"><i class="fa-solid fa-calculator"></i> Calculate Cost</a>
+                    </div>
+                    <div class="hero-highlights">
+                        <div class="highlight-item">
+                            <span class="num">25+</span>
+                            <span class="label">Years Trust</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="num">100%</span>
+                            <span class="label">BIS Certified</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="num">2000+</span>
+                            <span class="label">Happy Families</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper">
+                    <div class="gold-glow-circle"></div>
+                    <img src="assets/hero_jewelry.png" alt="Mhaske Saraf Luxury Jewellery Collection" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Badges Section -->
+        <section class="trust-strip">
+            <div class="strip-container">
+                <div class="trust-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h4>BIS Hallmarked Gold</h4>
+                        <p>Every piece is stamped with authentic 916 purity mark.</p>
+                    </div>
+                </div>
+                <div class="trust-card">
+                    <i class="fa-solid fa-hands-holding-circle"></i>
+                    <div>
+                        <h4>100% Transparent Billing</h4>
+                        <p>No hidden costs. Detailed breakdown of making charges.</p>
+                    </div>
+                </div>
+                <div class="trust-card">
+                    <i class="fa-solid fa-arrow-rotate-left"></i>
+                    <div>
+                        <h4>Easy Buyback & Exchange</h4>
+                        <p>Guaranteed lifetime exchange value based on market rates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog / Designs Section -->
+        <section id="catalog" class="catalog-section">
+            <div class="section-header text-center">
+                <span class="section-subtitle">Exquisite Creations</span>
+                <h3 class="section-title">Browse Our Exquisite Showroom</h3>
+                <div class="section-divider"><span></span>⚜<span></span></div>
+                <p class="section-description">Select from our signature designs or filter by category to find the perfect piece for your special occasion.</p>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="catalog-controls-container">
+                <div class="search-bar-wrapper">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="catalogSearchInput" placeholder="Search rings, bangles, mangalsutra...">
+                </div>
+                <div class="catalog-filters">
+                    <button class="filter-btn active" data-category="all">All Designs</button>
+                    <button class="filter-btn" data-category="bangles">Bangles</button>
+                    <button class="filter-btn" data-category="mangalsutra">Mangalsutra</button>
+                    <button class="filter-btn" data-category="rings">Rings</button>
+                    <button class="filter-btn" data-category="necklaces">Necklaces</button>
+                </div>
+            </div>
+
+            <!-- Jewelry Grid -->
+            <div class="jewelry-grid" id="jewelryGrid">
+                <!-- Javascript will render jewelry items dynamically -->
+            </div>
+        </section>
+
+        <!-- Gold Price Estimator Tool -->
+        <section id="estimator" class="estimator-section">
+            <div class="estimator-container">
+                <div class="estimator-info">
+                    <span class="section-subtitle">Financial Clarity</span>
+                    <h3 class="section-title">Interactive Gold Price Estimator</h3>
+                    <p class="estimator-desc">Estimate the cost of your custom design or standard weights instantly. Based on today's simulated market prices, complete with standard GST and customizable making charges.</p>
+                    
+                    <div class="live-card-list">
+                        <div class="live-card">
+                            <span class="label">Gold 24K (Per Gram)</span>
+                            <span class="price" id="calc-rate-24k">₹7,245.00</span>
+                        </div>
+                        <div class="live-card">
+                            <span class="label">Gold 22K (Per Gram)</span>
+                            <span class="price" id="calc-rate-22k">₹6,641.00</span>
+                        </div>
+                    </div>
+
+                    <div class="disclaimer-text">
+                        <i class="fa-solid fa-circle-info"></i> Note: Making charges vary between 8% to 15% depending on the complexity of the craftsmanship. Rates calculated are for representation purposes.
+                    </div>
+                </div>
+
+                <div class="estimator-calculator-card">
+                    <h4>Calculate Estimate</h4>
+                    <div class="divider-gold-small"></div>
+                    <form id="estimatorForm">
+                        <div class="form-group">
+                            <label for="calcMetalType">Select Metal & Purity</label>
+                            <select id="calcMetalType" class="form-select">
+                                <option value="gold-22k" selected>Gold 22K (91.6% Hallmark)</option>
+                                <option value="gold-24k">Gold 24K (99.9% Pure)</option>
+                                <option value="silver">Silver (99.9% Pure)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="calcWeight">Jewellery Weight (Grams)</label>
+                            <input type="number" id="calcWeight" class="form-input" min="0.1" step="0.01" value="10" placeholder="Enter weight in grams">
+                        </div>
+                        <div class="form-group">
+                            <label for="calcMakingCharges">Estimated Making Charges (%)</label>
+                            <input type="number" id="calcMakingCharges" class="form-input" min="1" max="30" value="10" placeholder="E.g. 10%">
+                        </div>
+                        <div class="form-group">
+                            <label for="calcGst">Tax (GST)</label>
+                            <select id="calcGst" class="form-select">
+                                <option value="3" selected>3% (Govt. Standard)</option>
+                                <option value="0">0% (Exempted / Cash)</option>
+                                <option value="1">1% (Custom / Special)</option>
+                                <option value="2">2% (Custom / Special)</option>
+                                <option value="5">5% (Custom / Special)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="calc-results">
+                            <div class="result-row">
+                                <span>Metal Cost:</span>
+                                <span id="resMetalCost">₹66,410.00</span>
+                            </div>
+                            <div class="result-row">
+                                <span>Making Charges:</span>
+                                <span id="resMakingCost">₹6,641.00</span>
+                            </div>
+                            <div class="result-row">
+                                <span>GST (3%):</span>
+                                <span id="resGstCost">₹2,191.53</span>
+                            </div>
+                            <div class="result-row total">
+                                <span>Total Estimated Price:</span>
+                                <span id="resTotalCost">₹75,242.53</span>
+                            </div>
+                        </div>
+
+                        <button type="button" id="calculatorInquiryBtn" class="btn btn-primary w-full mt-3">
+                            <i class="fa-brands fa-whatsapp"></i> Order Custom Weight
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Contact & Appointment Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-details-panel">
+                    <span class="section-subtitle">Get in Touch</span>
+                    <h3 class="section-title">Visit Our Showroom</h3>
+                    <div class="divider-gold-small"></div>
+                    <p class="contact-intro">Whether looking for standard bridal bangles, customized rings, or traditional Maharashtrian Mangalsutras, walk into our Tisgaon showroom today.</p>
+                    
+                    <div class="contact-info-list">
+                        <div class="contact-info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h5>Our Address</h5>
+                                <p>Ahmednagar - Pathardi Road, Tisgaon, Maharashtra 414106</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h5>Contact & WhatsApp</h5>
+                                <p><a href="tel:9960228653">+91 9960228653</a> (Hritik Mhaske)</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <div>
+                                <h5>Showroom Hours</h5>
+                                <p>Monday - Sunday: 10:00 AM to 8:30 PM (Friday Closed)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="directions-btn-wrapper">
+                        <a href="https://maps.google.com/?q=Ahmednagar+-+Pathardi+Rd,+Tisgaon,+Maharashtra+414106" target="_blank" class="btn btn-secondary">
+                            <i class="fa-solid fa-route"></i> Get Live Directions on Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Book Appointment Form -->
+                <div class="appointment-form-card">
+                    <h4>Book A Showroom Visit</h4>
+                    <div class="divider-gold-small"></div>
+                    <p>Skip the queue! Schedule a personalized viewing with Hritik Mhaske to explore exclusive collections.</p>
+                    <form id="appointmentForm" class="appointment-form">
+                        <div class="form-group">
+                            <label for="aptName">Full Name</label>
+                            <input type="text" id="aptName" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="aptPhone">Contact Number</label>
+                            <input type="tel" id="aptPhone" class="form-input" placeholder="Your Phone Number" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="aptDate">Preferred Date</label>
+                                <input type="date" id="aptDate" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="aptCategory">Interested in</label>
+                                <select id="aptCategory" class="form-select">
+                                    <option value="bangles">Gold Bangles</option>
+                                    <option value="mangalsutra">Mangalsutra</option>
+                                    <option value="rings">Gold/Diamond Rings</option>
+                                    <option value="necklaces">Necklaces / Choker</option>
+                                    <option value="custom">Other Custom Orders</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full mt-2">
+                            <i class="fa-solid fa-calendar-check"></i> Book Personal Viewing
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-symbol">⚜</span>
+                <h3>MHASKE SARAF</h3>
+                <p>Crafting gold with purity, designing with passion. Serving Tisgaon and Ahmednagar region with absolute honesty since 1998.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/919960228653" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://maps.google.com/?q=Ahmednagar+-+Pathardi+Rd,+Tisgaon,+Maharashtra+414106" target="_blank" aria-label="Google Maps"><i class="fa-solid fa-map-location-dot"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#catalog">Exquisite Designs</a></li>
+                    <li><a href="#estimator">Gold Calculator</a></li>
+                    <li><a href="owner_growth_guide.html" target="_blank">Owner Growth Strategy</a></li>
+                    <li><a href="#contact">Contact Store</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-details">
+                <h4>Showroom Info</h4>
+                <p><i class="fa-solid fa-user-tie"></i> Owner: <strong>Hritik Mhaske</strong></p>
+                <p><i class="fa-solid fa-location-dot"></i> Tisgaon, Ahmednagar - Pathardi Road, Maharashtra - 414106</p>
+                <p><i class="fa-solid fa-phone"></i> +91 9960228653</p>
+                <p><i class="fa-solid fa-envelope"></i> inquiries@mhaskesaraf.com</p>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2026 Mhaske Saraf Gold Shop. All Rights Reserved. Crafted with Purity & Honor.</p>
+        </div>
+    </footer>
+
+    <!-- Selection Drawer (Shopping Cart) -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Selected Quotation List</h3>
+            <button class="close-cart-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="cart-drawer-content" id="cartDrawerContent">
+            <!-- Render items dynamically with JS -->
+            <div class="empty-cart-view">
+                <i class="fa-solid fa-gem"></i>
+                <p>No designs selected yet.</p>
+                <a href="#catalog" class="btn btn-secondary close-cart-link">Browse Catalog</a>
+            </div>
+        </div>
+
+        <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
+            <div class="cart-totals">
+                <div class="totals-row">
+                    <span>Estimated Metal Cost:</span>
+                    <span id="cartMetalTotal">₹0.00</span>
+                </div>
+                <div class="totals-row">
+                    <span>Making Charges (Avg 10%):</span>
+                    <span id="cartMakingTotal">₹0.00</span>
+                </div>
+                <div class="totals-row">
+                    <span>Tax (GST 3%):</span>
+                    <span id="cartGstTotal">₹0.00</span>
+                </div>
+                <div class="totals-row grand-total">
+                    <span>Grand Total:</span>
+                    <span id="cartGrandTotal">₹0.00</span>
+                </div>
+            </div>
+            
+            <div class="cart-actions-panel">
+                <button class="btn btn-primary" id="checkoutBtn"><i class="fa-solid fa-file-invoice-dollar"></i> Generate Price Quotation</button>
+                <button class="btn btn-outline" id="clearCartBtn"><i class="fa-solid fa-trash-can"></i> Clear List</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal-wrapper" id="productModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" id="closeProductModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-grid" id="modalGridContent">
+                <!-- Javascript will render details dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout / Invoice Form Modal -->
+    <div class="modal-wrapper" id="checkoutModal">
+        <div class="modal-container checkout-form-container">
+            <button class="modal-close-btn" id="closeCheckoutModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <h3>Generate Luxury Price Quotation</h3>
+            <div class="divider-gold-small"></div>
+            <p class="checkout-instructions">Please enter the buyer's details. This will generate a branded showroom price quotation for your reference, which you can print or download.</p>
+            
+            <form id="invoiceForm" class="checkout-form">
+                <div class="form-group">
+                    <label for="invCustName">Customer Full Name</label>
+                    <input type="text" id="invCustName" class="form-input" placeholder="E.g. Mr. Rajesh Patil" required>
+                </div>
+                <div class="form-group">
+                    <label for="invCustPhone">Customer Contact Number</label>
+                    <input type="tel" id="invCustPhone" class="form-input" placeholder="E.g. 9876543210" required>
+                </div>
+                <div class="form-group">
+                    <label for="invCustAddress">Customer Address (City/Village)</label>
+                    <input type="text" id="invCustAddress" class="form-input" placeholder="E.g. Tisgaon, Pathardi" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="invPaymentMode">Payment Method</label>
+                        <select id="invPaymentMode" class="form-select">
+                            <option value="UPI / GPay">UPI / GPay / PhonePe</option>
+                            <option value="Cash">Cash Transaction</option>
+                            <option value="Bank Transfer">RTGS / NEFT / IMPS</option>
+                            <option value="Credit/Debit Card">Credit / Debit Card</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-full mt-3">
+                    <i class="fa-solid fa-file-pdf"></i> Generate & Preview Quotation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- INVOICE PREVIEW MODAL (PRINT FRIENDLY OVERLAY) -->
+    <div class="modal-wrapper" id="invoicePreviewModal">
+        <div class="modal-container invoice-preview-container">
+            <div class="invoice-actions no-print">
+                <button class="btn btn-primary" id="printInvoiceBtn"><i class="fa-solid fa-print"></i> Print / Save Quotation</button>
+                <button class="btn btn-outline" id="closeInvoicePreviewBtn">Close Preview</button>
+            </div>
+            
+            <!-- Real Invoice Structure to be Printed or Exported -->
+            <div class="invoice-printable" id="invoicePrintableArea">
+                <!-- Branded Header -->
+                <div class="invoice-header">
+                    <div class="invoice-brand-col">
+                        <div class="inv-logo">
+                            <span class="inv-logo-symbol">⚜</span>
+                            <div>
+                                <h2 class="inv-shop-name">MHASKE SARAF</h2>
+                                <p class="inv-shop-tagline">TRUSTED GOLD JEWELLERY SHOWROOM</p>
+                            </div>
+                        </div>
+                        <p class="inv-address">Ahmednagar - Pathardi Road, Tisgaon,<br>Maharashtra - 414106<br><strong>GSTIN:</strong> 27AABCM8722P1Z0 (Simulated)</p>
+                    </div>
+                    <div class="invoice-meta-col text-right">
+                        <h1 class="inv-title">ESTIMATE QUOTATION</h1>
+                        <p><strong>Quotation No:</strong> <span id="invMetaId">MS-2026-9021</span></p>
+                        <p><strong>Date:</strong> <span id="invMetaDate">25-May-2026</span></p>
+                        <p><strong>Time:</strong> <span id="invMetaTime">15:15 PM</span></p>
+                        <p><strong>Place of Supply:</strong> Tisgaon, MH</p>
+                    </div>
+                </div>
+
+                <div class="invoice-divider-gold"></div>
+
+                <!-- Parties Info -->
+                <div class="invoice-parties">
+                    <div class="inv-party-col">
+                        <h4 class="inv-section-title">Seller Info:</h4>
+                        <p class="inv-bold">Mhaske Saraf</p>
+                        <p>Proprietor: <strong>Hritik Mhaske</strong></p>
+                        <p>Phone: +91 9960228653</p>
+                        <p>Email: billing@mhaskesaraf.com</p>
+                    </div>
+                    <div class="inv-party-col text-right">
+                        <h4 class="inv-section-title">Buyer Info:</h4>
+                        <p class="inv-bold" id="invCustDispName">Mr. Rajesh Patil</p>
+                        <p id="invCustDispAddress">Tisgaon, Pathardi</p>
+                        <p>Phone: <span id="invCustDispPhone">9876543210</span></p>
+                    </div>
+                </div>
+
+                <!-- Invoice Table -->
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Description of Item</th>
+                            <th>HSN Code</th>
+                            <th>Purity</th>
+                            <th>Weight</th>
+                            <th>Metal Cost</th>
+                            <th>Making (10%)</th>
+                            <th>Taxable Amt</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoiceTableBody">
+                        <!-- JavaScript will populate items -->
+                    </tbody>
+                </table>
+
+                <!-- Summary Panel -->
+                <div class="invoice-totals-section">
+                    <div class="invoice-notes">
+                        <h4>Terms & Conditions:</h4>
+                        <p>1. Subject to Tisgaon, Maharashtra jurisdiction.</p>
+                        <p>2. Gold quality is BIS Hallmarked and guaranteed as stated.</p>
+                        <p>3. Estimated quotation prices fluctuate with daily market rates. This is not a legal tax bill.</p>
+                        <div class="payment-method-box">
+                            Payment Method: <strong id="invDispPaymentMode">UPI</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-totals-box">
+                        <div class="inv-total-row">
+                            <span>Subtotal (Metal + Making):</span>
+                            <span id="invSubtotal">₹0.00</span>
+                        </div>
+                        <div class="inv-total-row">
+                            <span>CGST (1.5%):</span>
+                            <span id="invCgst">₹0.00</span>
+                        </div>
+                        <div class="inv-total-row">
+                            <span>SGST (1.5%):</span>
+                            <span id="invSgst">₹0.00</span>
+                        </div>
+                        <div class="inv-total-row grand-total">
+                            <span>Grand Total (Incl. Taxes):</span>
+                            <span id="invGrandTotal">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="invoice-signatures">
+                    <div class="signature-col">
+                        <p>Customer Signature</p>
+                        <div class="sig-line"></div>
+                    </div>
+                    <div class="signature-col text-right">
+                        <p>For <strong>Mhaske Saraf</strong></p>
+                        <div class="sig-space">
+                            <span class="prop-sig-stamp">Hritik Mhaske</span>
+                        </div>
+                        <div class="sig-line"></div>
+                        <p>Authorized Signatory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Widget -->
+    <a href="https://wa.me/919960228653" class="whatsapp-floating" target="_blank" aria-label="Chat with Hritik Mhaske on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="floating-tooltip">Chat with Hritik</span>
+    </a>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>
