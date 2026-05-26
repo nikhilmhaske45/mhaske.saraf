@@ -108,36 +108,76 @@ const jewelryCatalog = [
 
 // --- INITIALIZER ---
 function initializeApp() {
-    // 1. Render Catalog Grid instantly with fallback rates
-    renderCatalog("all");
+    try {
+        console.log("Initializing Mhaske Saraf application...");
 
-    // 2. Setup Catalog Search & Filter Listeners
-    setupCatalogControls();
+        // 1. Render Catalog Grid instantly with fallback rates
+        renderCatalog("all");
+        console.log("Catalog rendered successfully.");
 
-    // 3. Setup Price Estimator Calculator
-    setupCalculator();
+        // 2. Setup Catalog Search & Filter Listeners
+        setupCatalogControls();
+        console.log("Catalog controls set up successfully.");
 
-    // 4. Setup Navigation, Cart, Drawer & Modal triggers
-    setupInterfaceEvents();
-    
-    // Set default date in appointment form to tomorrow
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const aptDateInput = document.getElementById("aptDate");
-    if (aptDateInput) {
-        aptDateInput.value = tomorrow.toISOString().split('T')[0];
-        aptDateInput.min = tomorrow.toISOString().split('T')[0];
+        // 3. Setup Price Estimator Calculator
+        setupCalculator();
+        console.log("Calculator set up successfully.");
+
+        // 4. Setup Navigation, Cart, Drawer & Modal triggers
+        setupInterfaceEvents();
+        console.log("Interface events set up successfully.");
+        
+        // Set default date in appointment form to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const aptDateInput = document.getElementById("aptDate");
+        if (aptDateInput) {
+            aptDateInput.value = tomorrow.toISOString().split('T')[0];
+            aptDateInput.min = tomorrow.toISOString().split('T')[0];
+        }
+
+        // 5. Fetch live gold rates asynchronously (non-blocking) in background
+        fetchLiveRates().then(() => {
+            console.log("Live rates fetched and display updated in background.");
+            // Re-render catalog after rates are updated so prices reflect live rates
+            const activeCategoryBtn = document.querySelector(".filter-btn.active");
+            const activeCategory = activeCategoryBtn ? activeCategoryBtn.dataset.category : "all";
+            const searchInput = document.getElementById("catalogSearchInput");
+            const query = searchInput ? searchInput.value : "";
+            renderCatalog(activeCategory, query);
+        }).catch(err => {
+            console.error("Error updating catalog with live rates:", err);
+        });
+
+    } catch (error) {
+        console.error("Critical app initialization failed:", error);
+        
+        // Render a professional, elegant debug banner on the page so the user knows exactly what failed
+        const banner = document.createElement("div");
+        banner.style.position = "fixed";
+        banner.style.bottom = "20px";
+        banner.style.right = "20px";
+        banner.style.backgroundColor = "#e74c3c";
+        banner.style.color = "#ffffff";
+        banner.style.padding = "20px";
+        banner.style.borderRadius = "8px";
+        banner.style.boxShadow = "0 10px 30px rgba(0,0,0,0.5), 0 0 10px rgba(231,76,60,0.5)";
+        banner.style.zIndex = "999999";
+        banner.style.maxWidth = "400px";
+        banner.style.fontFamily = "sans-serif";
+        banner.style.fontSize = "13px";
+        banner.style.lineHeight = "1.5";
+        banner.style.border = "1px solid #c0392b";
+        banner.innerHTML = `
+            <div style="font-weight: bold; font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                ⚠️ App Initialization Error
+            </div>
+            <div><strong>Message:</strong> ${error.message}</div>
+            <div style="margin-top: 5px; opacity: 0.8; font-size: 11px; white-space: pre-wrap; max-height: 150px; overflow-y: auto;">${error.stack}</div>
+            <button onclick="this.parentElement.remove()" style="margin-top: 10px; background: transparent; border: 1px solid rgba(255,255,255,0.4); color: white; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">Dismiss</button>
+        `;
+        document.body.appendChild(banner);
     }
-
-    // 5. Fetch live gold rates asynchronously (non-blocking) in background
-    fetchLiveRates().then(() => {
-        // Re-render catalog after rates are updated so prices reflect live rates
-        const activeCategoryBtn = document.querySelector(".filter-btn.active");
-        const activeCategory = activeCategoryBtn ? activeCategoryBtn.dataset.category : "all";
-        const searchInput = document.getElementById("catalogSearchInput");
-        const query = searchInput ? searchInput.value : "";
-        renderCatalog(activeCategory, query);
-    }).catch(err => console.error("Error fetching live rates asynchronously:", err));
 }
 
 // Robustly check document loading status to ensure initialization runs even if DOMContentLoaded already fired
@@ -167,7 +207,12 @@ async function fetchLiveRates() {
         // Extract rates
         const xauUsdOunce = goldData.price; // Gold price USD per Ounce
         const xagUsdOunce = silverData.price; // Silver price USD per Ounce
-        const usdToInr = forexData.rates.INR; // USD to INR exchange rate
+        const usdToInr = forexData.rates ? forexData.rates.INR : null; // USD to INR exchange rate
+
+        // Validate data is not null, undefined, or NaN before doing conversions
+        if (!xauUsdOunce || isNaN(xauUsdOunce) || !xagUsdOunce || isNaN(xagUsdOunce) || !usdToInr || isNaN(usdToInr)) {
+            throw new Error("Invalid or incomplete rate data fetched from live APIs. Applying local showroom fallbacks.");
+        }
 
         // Convert Ounces to Grams (1 Troy Ounce = 31.1034768 grams)
         const rawGoldGramInr = (xauUsdOunce / 31.1034768) * usdToInr;
@@ -184,15 +229,19 @@ async function fetchLiveRates() {
         console.log(`Live rates successfully fetched! 24K: ₹${goldRates.g24k.toFixed(2)}/g, 22K: ₹${goldRates.g22k.toFixed(2)}/g, Silver: ₹${goldRates.silver.toFixed(2)}/g`);
 
     } catch (error) {
-        console.warn(error.message);
+        console.warn("Precious Metals API Error:", error.message);
         // Seamless fallback to current solid baseline rates
         goldRates.g24k = 7245.00;
         goldRates.g22k = 6641.00;
         goldRates.silver = 87.50;
     }
 
-    updateTickerDisplay();
-    updateCalculatorRates();
+    try {
+        updateTickerDisplay();
+        updateCalculatorRates();
+    } catch (err) {
+        console.error("Error updating pricing display elements:", err);
+    }
 }
 
 function updateTickerDisplay() {
