@@ -107,28 +107,45 @@ const jewelryCatalog = [
 ];
 
 // --- INITIALIZER ---
-document.addEventListener("DOMContentLoaded", async () => {
-    // 1. Fetch live gold rates from public APIs and update
-    await fetchLiveRates();
-
-    // 2. Render Catalog Grid
+function initializeApp() {
+    // 1. Render Catalog Grid instantly with fallback rates
     renderCatalog("all");
 
-    // 3. Setup Catalog Search & Filter Listeners
+    // 2. Setup Catalog Search & Filter Listeners
     setupCatalogControls();
 
-    // 4. Setup Price Estimator Calculator
+    // 3. Setup Price Estimator Calculator
     setupCalculator();
 
-    // 5. Setup Navigation, Cart, Drawer & Modal triggers
+    // 4. Setup Navigation, Cart, Drawer & Modal triggers
     setupInterfaceEvents();
     
     // Set default date in appointment form to tomorrow
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
-    document.getElementById("aptDate").value = tomorrow.toISOString().split('T')[0];
-    document.getElementById("aptDate").min = tomorrow.toISOString().split('T')[0];
-});
+    const aptDateInput = document.getElementById("aptDate");
+    if (aptDateInput) {
+        aptDateInput.value = tomorrow.toISOString().split('T')[0];
+        aptDateInput.min = tomorrow.toISOString().split('T')[0];
+    }
+
+    // 5. Fetch live gold rates asynchronously (non-blocking) in background
+    fetchLiveRates().then(() => {
+        // Re-render catalog after rates are updated so prices reflect live rates
+        const activeCategoryBtn = document.querySelector(".filter-btn.active");
+        const activeCategory = activeCategoryBtn ? activeCategoryBtn.dataset.category : "all";
+        const searchInput = document.getElementById("catalogSearchInput");
+        const query = searchInput ? searchInput.value : "";
+        renderCatalog(activeCategory, query);
+    }).catch(err => console.error("Error fetching live rates asynchronously:", err));
+}
+
+// Robustly check document loading status to ensure initialization runs even if DOMContentLoaded already fired
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeApp);
+} else {
+    initializeApp();
+}
 
 // --- LIVE COMMODITY RATE API CONTROLLER ---
 async function fetchLiveRates() {
