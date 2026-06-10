@@ -3,6 +3,11 @@
  * Logic for fetching Live Gold/Silver Rates, Interactive Catalog, Price Estimator, Cart selection, printable quotations, and WhatsApp inquiries.
  */
 
+// SUPABASE CONNECTION
+const SUPABASE_URL = 'https://etttiskikzvgctryaewq.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Xlwvm2ZTZjS6eK3rOLdhMw_cTCHcD-a';
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 // --- DYNAMIC STATE ---
 // Base default rates in case API fetching fails (fallback)
 let goldRates = {
@@ -14,106 +19,61 @@ let goldRates = {
 // Selection Quotation list State
 let cart = [];
 
-// JEWELRY DATABASE
-const jewelryCatalog = [
-    {
-        id: "B01",
-        title: "Kundan Gold Kada Bangle",
-        category: "bangles",
-        weight: 24.50,
-        purity: "22K Hallmark",
-        img: "assets/gold_bangle.png",
-        desc: "Heavy gold Kada bangles with intricate handmade filigree work and premium Kundan gemstone clusters. Ideal for royal wedding wear.",
-        makingPercent: 12,
-        isLatest: true
-    },
-    {
-        id: "B02",
-        title: "Classic Antique Kada Bangle",
-        category: "bangles",
-        weight: 48.00,
-        purity: "22K Hallmark",
-        img: "assets/gold_bangle.png",
-        desc: "Exquisite heavy-weight antique-polished gold bangle with detailed Maharashtrian carving. Features robust screw-lock fitting.",
-        makingPercent: 10,
-        isLatest: false
-    },
-    {
-        id: "M01",
-        title: "Royal Tisgaon Mangalsutra",
-        category: "mangalsutra",
-        weight: 18.20,
-        purity: "22K Hallmark",
-        img: "assets/gold_mangalsutra.png",
-        desc: "Traditional style Maharashtrian double-wati gold pendant strung with premium hand-selected black beads and modern golden spacers.",
-        makingPercent: 9,
-        isLatest: true
-    },
-    {
-        id: "M02",
-        title: "Modern Diamond Mangalsutra",
-        category: "mangalsutra",
-        weight: 8.50,
-        purity: "22K Hallmark",
-        img: "assets/gold_mangalsutra.png",
-        desc: "Sleek, lightweight contemporary daily-wear Mangalsutra featuring an exquisite drop pendant set with certified sparkling diamonds.",
-        makingPercent: 14,
-        isLatest: true
-    },
-    {
-        id: "R01",
-        title: "Imperial Gold Solitaire Ring",
-        category: "rings",
-        weight: 6.80,
-        purity: "22K Hallmark",
-        img: "assets/gold_ring.png",
-        desc: "Splendid solid gold band highlighting a premium certified diamond solitaire in a multi-prong elevated setting. Perfect for engagements.",
-        makingPercent: 12,
-        isLatest: true
-    },
-    {
-        id: "R02",
-        title: "Peacock Antique Gold Ring",
-        category: "rings",
-        weight: 12.00,
-        purity: "22K Hallmark",
-        img: "assets/gold_ring.png",
-        desc: "Intricately detailed large peacock design ring carved in solid gold, featuring an artistic matte antique red polish finish.",
-        makingPercent: 10,
-        isLatest: false
-    },
-    {
-        id: "N01",
-        title: "Heritage Gold Choker Set",
-        category: "necklaces",
-        weight: 64.30,
-        purity: "22K Hallmark",
-        img: "assets/gold_necklace.png",
-        desc: "A magnificent royal gold choker necklace with hanging pearls and micro-beaded traditional gold patterns. Includes matching chandelier earrings.",
-        makingPercent: 13,
-        isLatest: true
-    },
-    {
-        id: "N02",
-        title: "Grand Temple Bridal Necklace",
-        category: "necklaces",
-        weight: 92.50,
-        purity: "22K Hallmark",
-        img: "assets/gold_necklace.png",
-        desc: "Breathtaking heavy wedding temple necklace displaying divine figures carved by master craftsmen in solid 22K yellow gold. An absolute heirloom.",
-        makingPercent: 11,
-        isLatest: false
+// JEWELRY DATABASE - Now loaded dynamically from Supabase
+let jewelryCatalog = [];
+
+// Category mapping helper to ensure database category names map correctly to UI categories
+const categoryMapping = {
+    'ring': 'rings',
+    'rings': 'rings',
+    'bangle': 'bangles',
+    'bangles': 'bangles',
+    'necklace': 'necklaces',
+    'necklaces': 'necklaces',
+    'mangalsutra': 'mangalsutra'
+};
+
+async function loadCatalogFromDB() {
+    console.log("Loading jewelry catalog from Supabase database...");
+    const { data, error } = await supabaseClient
+        .from('products')
+        .select('*');
+
+    if (error) {
+        throw new Error(`Supabase Database Error: ${error.message}`);
     }
-];
+
+    if (!data) {
+        throw new Error("No data returned from products table.");
+    }
+
+    // Map DB columns to existing catalog format
+    jewelryCatalog = data.map(item => ({
+        id: item.id.toString(),
+        title: item.name,
+        category: categoryMapping[item.category.toLowerCase()] || item.category,
+        weight: parseFloat(item.weight) || 10,
+        purity: item.purity || '22K Hallmark',
+        img: item.image_url,
+        desc: item.description || '',
+        makingPercent: item.making_percent || 10,
+        isLatest: item.is_latest || false
+    }));
+
+    console.log(`Loaded ${jewelryCatalog.length} products from Supabase.`);
+
+    // Render the grid after loading
+    renderCatalog('all');
+}
 
 // --- INITIALIZER ---
-function initializeApp() {
+async function initializeApp() {
     try {
         console.log("Initializing Mhaske Saraf application...");
 
-        // 1. Render Catalog Grid instantly with fallback rates
-        renderCatalog("all");
-        console.log("Catalog rendered successfully.");
+        // 1. Load Catalog Grid from Supabase Database
+        await loadCatalogFromDB();
+        console.log("Catalog loaded and rendered successfully.");
 
         // 2. Setup Catalog Search & Filter Listeners
         setupCatalogControls();
